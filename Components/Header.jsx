@@ -4,8 +4,8 @@ import React from 'react'
 
 const Header = () => {
     return (
-        <div className='py-5 px-5 md:px-12 lg:px-28'>
-            <div className='flex justify-between items-center'>
+        <div className='py-5 px-5 md:px-12 lg:px-28 '>
+            <div className='flex justify-between items-center '>
                 <Image src={assets.blogify} width={180} alt="Logo" className='w-[130px] sm:w-auto' />
                 <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 text-white bg-pink-400'>Get Started <Image src={assets.arrow} alt=''/> </button>
             </div>

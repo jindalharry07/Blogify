@@ -3,7 +3,7 @@ import Image from "next/image"
 import React from "react"
 const BlogItem = ({title, description, category, image}) => {
     return (
-        <div className="max-w-[330px] sm:max-w-[300px] bg-white border border-radius-20% hover:shadow-[-7px_7px_0px_#00000]">
+        <div className="max-w-[330px] sm:max-w-[300px] bg-white border hover:shadow-[-7px_7px_0px_#000000]">
             <Image src={image} alt="" width={400} height={400} className="border-b border-black"/>
             <p className="ml-5 mt-5 px-1 inline-block bg-black text-white text-sm">{category}</p>
             <div className="p-5">
