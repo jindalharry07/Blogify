@@ -36,7 +36,7 @@ const Page = ({ params }) => {
               className="w-[130px] sm-w-auto"
             />
           </Link>
-          <button className="flex items-center gap-2 font-medium py-1 px-3 sm:p-3 sm:px-6 border border-black text-white bg-pink-400">
+          <button className="flex items-center gap-2 font-medium py-1 px-3 sm:p-3 sm:px-6 border border-black text-white cursor-pointer bg-pink-400 hover:shadow-[0px_0px_15px_#000000]">
             Get Started <Image src={assets.arrow} alt="" />
           </button>
         </div>

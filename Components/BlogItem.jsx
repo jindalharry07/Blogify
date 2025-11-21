@@ -5,7 +5,9 @@ import Link from "next/link"
 
 const BlogItem = ({title, description, category, image, id}) => {
     return (
-        <div className="max-w-[330px] sm:max-w-[300px] bg-white border hover:shadow-[-7px_7px_0px_#000000]">
+        <div className="max-w-[330px] sm:max-w-[300px] bg-white border 
+    transition-transform duration-300 ease-in-out 
+    hover:scale-105 hover:shadow-[0px_0px_15px_#000000]">
             <Link href={`/blogs/${id}`}><Image src={image} alt="" width={400} height={400} className="border-b border-black"/></Link>
             <p className="ml-5 mt-5 px-1 inline-block bg-black text-white text-sm">{category}</p>
             <div className="p-5">
