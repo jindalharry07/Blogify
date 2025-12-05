@@ -9,9 +9,8 @@ const LoadDB = async () => {
 LoadDB();
 // api endpoint to get all blogs
 export async function GET(request) {
-   const blogs = await BlogModel.find({}) ;
-   return NextResponse.json({blogs})
-   
+  const blogs = await BlogModel.find({}) ;
+  return NextResponse.json({blogs}) 
 }
 
 // api endpoint for uploading Blogs

@@ -5,8 +5,8 @@ import { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { toast } from "react-toastify";
-const page = () => {
-    const [image, setImage] = useState(false);
+const Page = () => {
+    const [image, setImage] = useState(null);
     const [data, setData] = useState({
         title:"",
         description: "",
@@ -31,20 +31,24 @@ const page = () => {
         formData.append('author', data.author);
         formData.append('authorImg', data.authorImg);
         formData.append('image', image);
-        const response  = await axios.post('/api/blog', formData);
-        if(response.data.success) {
-            toast.success(response.data.msg);
-            setImage(false);
-            setData({
-                title:"",
-                description: "",
-                category:"Startup",
-                author:"ABC",
-                authorImg:"/author_img.png"
-            })
-        }
-        else {
-            toast.error("Error");
+        try {
+            const response = await axios.post('/api/blog', formData);
+
+            if (response.data.success) {
+                toast.success(response.data.msg);
+                setImage(null);
+                setData({
+                    title: "",
+                    description: "",
+                    category: "Startup",
+                    author: "ABC",
+                    authorImg: "/author_img.png",
+                });
+            } else {
+                toast.error("Something went wrong");
+            }
+        } catch (err) {
+            toast.error("Server error");
         }
     }
 
@@ -73,4 +77,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
