@@ -5,24 +5,40 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Footer from "@/Components/Footer";
+import axios from "axios";
+import { useParams } from "next/navigation";
 
 const Page = ({ params }) => {
-  const { id } = React.use(params);
+  // const { id } = React.use(params);
+  const { id } = useParams();
   const [data, setData] = useState(null);
 
-  const fetchBlogData = () => {
-    for (let i = 0; i < blog_data.length; i++) {
-      if (Number(id) === blog_data[i].id) {
-        setData(blog_data[i]);
-        console.log(blog_data[i]);
-        break;
-      }
-    }
+  // const fetchBlogData = () => {
+  //   for (let i = 0; i < blog_data.length; i++) {
+  //     if (Number(id) === blog_data[i].id) {
+  //       setData(blog_data[i]);
+  //       console.log(blog_data[i]);
+  //       break;
+  //     }
+  //   }
+  // };
+
+  const fetchBlogData = async () => {
+    const response = await axios.get("/api/blog", {
+      params: {
+        id: id,
+      },
+    });
+
+    setData(response.data);
   };
 
+  // useEffect(() => {
+  //   fetchBlogData();
+  // }, []);
   useEffect(() => {
-    fetchBlogData();
-  }, []);
+    if (id) fetchBlogData();
+  }, [id]);
 
   return data ? (
     <>
@@ -45,7 +61,8 @@ const Page = ({ params }) => {
             {data.title}
           </h1>
           <Image
-            src={data.author_img}
+            // src={data.author_img}
+            src={data.authorImg}
             width={60}
             height={60}
             alt=""
@@ -62,13 +79,13 @@ const Page = ({ params }) => {
           className="border-2 border-black"
           src={data.image}
           width={1280}
-          h={780}
+          height={780}
           alt=""
         />
         <h1 className="my-8 text-[26px] font-semibold">Introduction : </h1>
         <p>{data.description}</p>
         <h3 className="my-5 text-[18px] font-semibold">Hello World!</h3>
-        <p className="my-3">
+        {/* <p className="my-3">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
           maxime sint ad, repellendus ea ipsam dignissimos accusantium, illo eum
           velit architecto eius, exercitationem ut reiciendis. Perspiciatis eum
@@ -115,7 +132,7 @@ const Page = ({ params }) => {
           maxime sint ad, repellendus ea ipsam dignissimos accusantium, illo eum
           velit architecto eius, exercitationem ut reiciendis. Perspiciatis eum
           accusantium laudantium odio?
-        </p>
+        </p> */}
 
         <div className="my-24">
           <p className="text-black font-semibold my-4">
