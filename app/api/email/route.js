@@ -18,3 +18,22 @@ export async function POST(request) {
 
   return NextResponse.json({success : true, msg: "Email Subscribed"});
 }
+
+export async function GET() {
+  try {
+    await ConnectDB();
+
+    const emails = await EmailModel.find({});
+
+    return NextResponse.json(
+      { emails },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("GET /api/email error:", error);
+    return NextResponse.json(
+      { msg: "Server error" },
+      { status: 500 }
+    );
+  }
+}
