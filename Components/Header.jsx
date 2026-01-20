@@ -11,16 +11,16 @@ const Header = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("email", email);
-    toast.error("Error");
+    try {
+      const formData = new FormData();
+      formData.append("email", email);
 
-    const response = await axios.post("/api/email", formData);
-    if (response.data.success) {
+      const response = await axios.post("/api/email", formData);
+
       toast.success(response.data.msg);
       setEmail("");
-    } else {
-      toast.error("Error");
+    } catch (error) {
+      toast.error(error.response?.data?.msg || "Something went wrong");
     }
   };
 
@@ -43,11 +43,6 @@ const Header = () => {
         </h1>
         <p className="mt-10 max-w-[740px] m-auto text-s sm:test-base">
           Whether it's a story, an idea, or a spark of inspiration, your words
-          deserve to be heard. Start writing today and make your mark on the
-          world.
-        </p>
-        <p className="mt-10 max-w-[740px] m-auto text-s sm:test-base">
-          Whether it’s a story, an idea, or a spark of inspiration, your words
           deserve to be heard. Start writing today and make your mark on the
           world.
         </p>

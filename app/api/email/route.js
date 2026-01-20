@@ -2,38 +2,54 @@ import { ConnectDB } from "@/lib/config/db";
 import EmailModel from "@/lib/models/EmailModel";
 import { NextRequest, NextResponse } from "next/server";
 
-const LoadDB = async () => {
-  await ConnectDB();
-}
-LoadDB();
-
 export async function POST(request) {
-  const formData = await request.formData();
+  await ConnectDB();
 
-  const emailData = {
-    email: `${formData.get('email')}`,
-  }
-
-  await EmailModel.create(emailData);
-
-  return NextResponse.json({success : true, msg: "Email Subscribed"});
-}
-
-export async function GET() {
   try {
-    await ConnectDB();
+    const formData = await request.formData();
+    const email = formData.get("email");
 
-    const emails = await EmailModel.find({});
+    if (!email) {
+      return NextResponse.json(
+        { success: false, msg: "Email is required" },
+        { status: 400 }
+      );
+    }
 
-    return NextResponse.json(
-      { emails },
-      { status: 200 }
-    );
+    const exists = await EmailModel.findOne({ email });
+
+    if (exists) {
+      return NextResponse.json(
+        { success: false, msg: "Already subscribed" },
+        { status: 400 }
+      );
+    }
+
+
+    await EmailModel.create({ email });
+
+    return NextResponse.json({
+      success: true,
+      msg: "Email Subscribed",
+    });
   } catch (error) {
-    console.error("GET /api/email error:", error);
     return NextResponse.json(
-      { msg: "Server error" },
+      { success: false, msg: "Server error" },
       { status: 500 }
     );
   }
+}
+
+export async function GET(request) {
+  await ConnectDB();
+  const emails = await EmailModel.find({}) ;
+  return NextResponse.json({emails});
+}
+
+export async function DELETE(request) {
+  await ConnectDB();
+  const id = await request.nextUrl.searchParams.get("id");
+  await EmailModel.findByIdAndDelete(id);
+  return NextResponse.json({success : true, msg : "Email Deleted."})
+
 }

@@ -82,57 +82,8 @@ const Page = ({ params }) => {
           height={780}
           alt=""
         />
-        <h1 className="my-8 text-[26px] font-semibold">Introduction : </h1>
-        <p>{data.description}</p>
-        <h3 className="my-5 text-[18px] font-semibold">Hello World!</h3>
-        {/* <p className="my-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-          maxime sint ad, repellendus ea ipsam dignissimos accusantium, illo eum
-          velit architecto eius, exercitationem ut reiciendis. Perspiciatis eum
-          accusantium laudantium odio?
-        </p>
-        <p className="my-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-          maxime sint ad, repellendus ea ipsam dignissimos accusantium, illo eum
-          velit architecto eius, exercitationem ut reiciendis. Perspiciatis eum
-          accusantium laudantium odio?
-        </p>
 
-        <h3 className="my-5 text-[18px] font-semibold">Hello World!</h3>
-        <p className="my-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-          maxime sint ad, repellendus ea ipsam dignissimos accusantium, illo eum
-          velit architecto eius, exercitationem ut reiciendis. Perspiciatis eum
-          accusantium laudantium odio?
-        </p>
-        <p className="my-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-          maxime sint ad, repellendus ea ipsam dignissimos accusantium, illo eum
-          velit architecto eius, exercitationem ut reiciendis. Perspiciatis eum
-          accusantium laudantium odio?
-        </p>
-
-        <h3 className="my-5 text-[18px] font-semibold">Hello World!</h3>
-        <p className="my-3 ">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-          maxime sint ad, repellendus ea ipsam dignissimos accusantium, illo eum
-          velit architecto eius, exercitationem ut reiciendis. Perspiciatis eum
-          accusantium laudantium odio?
-        </p>
-        <p className="my-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-          maxime sint ad, repellendus ea ipsam dignissimos accusantium, illo eum
-          velit architecto eius, exercitationem ut reiciendis. Perspiciatis eum
-          accusantium laudantium odio?
-        </p>
-
-        <h3 className="my-5 text-[18px] font-semibold">Conclusion</h3>
-        <p className="my-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-          maxime sint ad, repellendus ea ipsam dignissimos accusantium, illo eum
-          velit architecto eius, exercitationem ut reiciendis. Perspiciatis eum
-          accusantium laudantium odio?
-        </p> */}
+        <div className="blog-content" dangerouslySetInnerHTML={{ __html: data.description }}></div>
 
         <div className="my-24">
           <p className="text-black font-semibold my-4">
