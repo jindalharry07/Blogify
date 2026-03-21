@@ -52,9 +52,12 @@ const Page = ({ params }) => {
               className="w-[130px] sm-w-auto"
             />
           </Link>
-          <button className="flex items-center gap-2 font-medium py-1 px-3 sm:p-3 sm:px-6 border border-black text-white cursor-pointer bg-pink-400 hover:shadow-[0px_0px_15px_#000000]">
-            Get Started <Image src={assets.arrow} alt="" />
-          </button>
+          <Link 
+            href="/login" 
+            className="flex items-center gap-2 font-semibold py-2 px-4 sm:py-3 sm:px-6 text-white cursor-pointer bg-black hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 rounded-full shadow-md"
+          >
+            Login <Image src={assets.arrow} alt="" className="invert" />
+          </Link>
         </div>
         <div className="text-center my-24">
           <h1 className="text-2xl sm:text-5xl font-semibold max-w-[700px] mx-auto">
