@@ -1,9 +1,15 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Montserrat, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -12,15 +18,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Blog Application",
-  description: "create next app",
+  title: "Blogify | Premium Editorial Blog",
+  description: "Experience stories in a high-end editorial format.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${playfair.variable} ${montserrat.variable} ${geistMono.variable} antialiased selection:bg-gray-100 selection:text-black`}
       >
         {children}
       </body>

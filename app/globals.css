@@ -1,36 +1,60 @@
 @import "tailwindcss";
 
-.scrollbar-hide ::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+@layer base {
+  :root {
+    --brand-color: oklch(71.4% 0.014 41.2);
+    --brand-dark: oklch(65% 0.014 41.2);
+  }
+
+  body {
+    font-family: var(--font-montserrat), sans-serif;
+    @apply text-gray-800 bg-[#fdfdfb]; /* Slightly off-white editorial background */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6, .serif {
+    font-family: var(--font-playfair), serif;
+  }
 }
 
-.blog-content{
-  padding : 36px 0;
-}
-.blog-content b{
-  margin-bottom: 10px;
-  font-weight: 500;
+.bg-brand {
+  background-color: var(--brand-color);
 }
 
-.blog-content p{
-  margin-bottom: 10px;
+.text-brand {
+  color: var(--brand-color);
 }
-.blog-content h1{
-  margin-bottom: 10px;
-  font-weight: 600;
-  font-size: 26px;
+
+/* Custom Cursive class for editorial feel */
+.cursive {
+  font-family: 'Bakersfield', cursive, serif; /* Fallback to serif if cursive not loaded */
+  font-family: var(--font-playfair), serif;
+  font-style: italic;
 }
-.blog-content h2{
-  margin-bottom: 10px;
-  font-weight: 500;
-  font-size: 22px;
+
+.blog-content p {
+  @apply mb-8 text-gray-700 leading-relaxed text-lg;
 }
-.blog-content h3{
-  margin-bottom: 10px;
-  font-weight: 500;
-  font-size: 18px;
+
+.blog-content h1 {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-medium mb-10 text-gray-900 leading-[1.1];
+}
+
+.blog-content h2 {
+  @apply text-3xl font-medium mt-16 mb-8 text-gray-900;
+}
+
+.blog-content img {
+  @apply rounded-none my-14 shadow-none; /* Editorial style usually has sharp images or very subtle shadow */
+}
+
+/* Custom scrollbar for modern feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-full hover:bg-gray-300 transition-colors;
 }
