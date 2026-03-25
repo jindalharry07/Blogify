@@ -97,7 +97,7 @@ export default function Signup() {
               
               <button 
                 type="submit" 
-                className="w-full py-5 bg-brand text-black text-[11px] tracking-[0.3em] uppercase font-bold rounded-2xl shadow-xl shadow-gray-200 transition-all hover:opacity-80 hover:scale-[1.02] active:scale-95"
+                className="cursor-pointer w-full py-5 bg-brand text-black text-[11px] tracking-[0.3em] uppercase font-bold rounded-2xl shadow-xl shadow-gray-200 transition-all hover:opacity-80 hover:scale-[1.02] active:scale-95"
               >
                 Create Account
               </button>
