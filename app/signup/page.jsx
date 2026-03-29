@@ -19,6 +19,21 @@ export default function Signup() {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    
+    // Email Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    // Password Validation: min 8 characters, 1 uppercase, 1 lowercase, 1 special character
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
+    if (!passwordRegex.test(data.password)) {
+      toast.error("Password must be at least 8 chars long with uppercase, lowercase, and special character");
+      return;
+    }
+
     try {
       const response = await axios.post('/api/auth/signup', data);
       if (response.data.success) {

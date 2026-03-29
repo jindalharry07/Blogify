@@ -13,6 +13,21 @@ export async function POST(request) {
       return NextResponse.json({ success: false, msg: "All fields are required" }, { status: 400 });
     }
 
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ success: false, msg: "Invalid email format" }, { status: 400 });
+    }
+
+    // Password validation: min 8 chars, 1 upper, 1 lower, 1 special character
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
+    if (!passwordRegex.test(password)) {
+      return NextResponse.json({ 
+        success: false, 
+        msg: "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, and a special character" 
+      }, { status: 400 });
+    }
+
     const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
       return NextResponse.json({ success: false, msg: "User already exists" }, { status: 400 });

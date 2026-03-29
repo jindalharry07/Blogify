@@ -73,7 +73,7 @@ const Header = () => {
             <div className="relative">
               <button 
                 onClick={() => setShowMenu(!showMenu)}
-                className="flex items-center gap-2 group transition-transform active:scale-95"
+                className="flex items-center gap-2 group transition-transform active:scale-95 cursor-pointer"
               >
                 <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-100 shadow-sm">
                   <Image src={assets.profile_icon} width={48} height={48} alt="Profile" className="object-cover" />
@@ -81,12 +81,12 @@ const Header = () => {
               </button>
               {showMenu && (
                 <div className="absolute right-0 top-full mt-4 w-52 bg-white border border-gray-100 py-4 z-[100] shadow-xl rounded-2xl">
-                    <Link href="/profile" className="block px-8 py-3 hover:bg-gray-50 text-black font-bold text-[10px] tracking-widest uppercase font-montserrat">Profile Settings</Link>
+                    <Link href="/profile" className="block px-8 py-3 hover:bg-gray-50 text-black font-bold text-[10px] tracking-widest uppercase font-montserrat cursor-pointer">Profile Settings</Link>
                     {userRole === 'admin' && (
-                      <Link href="/admin" className="block px-8 py-3 hover:bg-gray-50 text-black font-bold text-[10px] tracking-widest uppercase font-montserrat">Admin Dashboard</Link>
+                      <Link href="/admin" className="block px-8 py-3 hover:bg-gray-50 text-black font-bold text-[10px] tracking-widest uppercase font-montserrat cursor-pointer">Admin Dashboard</Link>
                     )}
                     <div className="h-px bg-gray-50 my-2" />
-                    <button onClick={handleLogout} className="w-full text-left px-8 py-3 hover:bg-gray-50 text-red-500 font-bold text-[10px] tracking-widest uppercase font-montserrat">Sign Out</button>
+                    <button onClick={handleLogout} className="w-full text-left px-8 py-3 hover:bg-gray-50 text-red-500 font-bold text-[10px] tracking-widest uppercase font-montserrat cursor-pointer">Sign Out</button>
                 </div>
               )}
             </div>
