@@ -1,13 +1,10 @@
 import Sidebar from "@/Components/AdminComponents/Sidebar";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Image from "next/image";
 import { assets } from "@/Assets/Assets";
 
 export default function Layout({children}) {
     return (
         <div className="flex min-h-screen bg-[#fdfdfb]">
-            <ToastContainer theme="colored"/>  
             <Sidebar />
             <div className="flex flex-col w-full">
                 <header className="flex items-center justify-between w-full py-6 px-10 border-b border-gray-100 bg-white/50 backdrop-blur-md"> 

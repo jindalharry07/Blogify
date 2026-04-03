@@ -22,12 +22,16 @@ export const metadata = {
   description: "Experience stories in a high-end editorial format.",
 };
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${playfair.variable} ${montserrat.variable} ${geistMono.variable} antialiased selection:bg-gray-100 selection:text-black`}
       >
+        <ToastContainer theme="dark"/>
         {children}
       </body>
     </html>

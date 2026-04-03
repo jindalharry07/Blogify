@@ -4,7 +4,7 @@ Welcome to **Blogify**! A robust, full-stack blogging application built using th
 
 ---
 
-## 🚀 Built With
+## Built With
 
 | Feature           | Technology                                                                                                   |
 |-------------------|-------------------------------------------------------------------------------------------------------------|
@@ -17,20 +17,24 @@ Welcome to **Blogify**! A robust, full-stack blogging application built using th
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-- **🔐 Secure Authentication**: 
+- **Secure Authentication**: 
     - Full Signup/Login flow with hashed passwords.
     - JWT based cookies for persistent user sessions.
     - Protected admin routes using Next.js Middleware.
-- **🛠️ Admin Dashboard**:
+
+- **Admin Dashboard**:
     - Manage blogs directly from a dedicated interface.
     - Add, edit, or delete blog posts effortlessly.
-- **✉️ Email Subscriptions**:
+
+- **Email Subscriptions**:
     - Integrated subscription system for readers to stay updated.
-- **📱 Fully Responsive**:
+
+- **Fully Responsive**:
     - Seamless browsing experience across mobile, tablet, and desktop.
-- **⚡ Supercharged Performance**:
+
+- **Supercharged Performance**:
     - Powered by Next.js Server Side Rendering (SSR) and Client Side Hydration.
 
 ---
@@ -58,15 +62,15 @@ Blogify/
 
 ---
 
-## 🛠️ Getting Started
+## Getting Started
 
 Follow these steps to set up and run Blogify locally.
 
-### 📋 Prerequisites
+### Prerequisites
 
 - **Node.js**: v18.x or higher
 - **MongoDB**: A running instance (local or Atlas)
-- **Environment Variables**: Create a `.env.local` file in the root with your credentials:
+- **Environment Variables**: Create a `.env.example` file in the root with your credentials:
     ```env
     MONGODB_URI=your_mongodb_connection_string
     JWT_SECRET=your_jwt_secret_key
@@ -116,7 +120,7 @@ Contributions are welcome! If you'd like to improve Blogify, feel free to fork t
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
